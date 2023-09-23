@@ -19,16 +19,16 @@ public class Level1 extends LevelBase implements KeyListener, ActionListener {
 	public Level1() {
 		super("Pooyan - Level 1");
 
-		lift = new JLabel(new ImageIcon(iconPath + "piggy2.png"));
-		building = new JLabel(new ImageIcon(iconPath + "building2.png"));
-		mountain = new JLabel(new ImageIcon(iconPath + "mountain.png"));
+		lift = new JLabel(getImageIcon(iconPath + "piggy2.png"));
+		building = new JLabel(getImageIcon(iconPath + "building2.png"));
+		mountain = new JLabel(getImageIcon(iconPath + "mountain.png"));
 
 		score = new JLabel("Score : 0");
 		lives = new JLabel("Lives : 5");
 
 		arrow = new JLabel[2];
-		arrow[0] = new JLabel(new ImageIcon(iconPath + "arrow.png"));
-		arrow[1] = new JLabel(new ImageIcon(iconPath + "redarrow.png"));
+		arrow[0] = new JLabel(getImageIcon(iconPath + "arrow.png"));
+		arrow[1] = new JLabel(getImageIcon(iconPath + "redarrow.png"));
 
 		wolf = new JLabel[9];
 
@@ -135,10 +135,10 @@ public class Level1 extends LevelBase implements KeyListener, ActionListener {
 				// Probability of Power arrow is 2 out of 10.
 				if ((int) (Math.random() * 10) < 3) {
 					power = true;
-					lift.setIcon(new ImageIcon(iconPath + "piggy3.png"));
+					lift.setIcon(getImageIcon(iconPath + "piggy3.png"));
 				} else {
 					power = false;
-					lift.setIcon(new ImageIcon(iconPath + "piggy2.png"));
+					lift.setIcon(getImageIcon(iconPath + "piggy2.png"));
 				}
 			}
 		}
@@ -181,7 +181,6 @@ public class Level1 extends LevelBase implements KeyListener, ActionListener {
 		// ------------------------Timer 2 for Wolves---------------------------
 		if (ae.getSource() == tim2) {
 			for (i = 0; i < 9; i++) {
-				System.out.println("availableWolf = " + availableWolf[i]);
 				// -----------Wolves going up and down-----------
 
 				if (availableWolf[i] == 0) {
@@ -225,7 +224,7 @@ public class Level1 extends LevelBase implements KeyListener, ActionListener {
 
 					randomPic = (int) (Math.random() * 7 + 1);
 					picVal[i] = randomPic;
-					wolf[i].setIcon(new ImageIcon(iconPath + "wolf" + randomPic + ".png"));
+					wolf[i].setIcon(getImageIcon(iconPath + "wolf" + randomPic + ".png"));
 
 					randomX = (int) (Math.random() * 450 + 1);
 					wolf[i].setLocation(randomX, 650);
@@ -245,7 +244,7 @@ public class Level1 extends LevelBase implements KeyListener, ActionListener {
 					if ((upDown[i] == 1)
 							&& ((wolfPosition.y + 80) > arrowPosition.y && wolfPosition.y < arrowPosition.y)
 							&& ((wolfPosition.x + 60) > arrowPosition.x && wolfPosition.x < arrowPosition.x)) {
-						wolf[i].setIcon(new ImageIcon(iconPath + "fallingWolf" + picVal[i] + ".png"));
+						wolf[i].setIcon(getImageIcon(iconPath + "fallingWolf" + picVal[i] + ".png"));
 
 						upDown[i] = 0;
 						tim1.stop();
@@ -263,7 +262,7 @@ public class Level1 extends LevelBase implements KeyListener, ActionListener {
 					if ((upDown[i] == 1)
 							&& ((wolfPosition.y + 120) > arrowPosition.y && (wolfPosition.y - 40) < arrowPosition.y)
 							&& ((wolfPosition.x + 70) > arrowPosition.x && wolfPosition.x < arrowPosition.x)) {
-						wolf[i].setIcon(new ImageIcon(iconPath + "fallingWolf" + picVal[i] + ".png"));
+						wolf[i].setIcon(getImageIcon(iconPath + "fallingWolf" + picVal[i] + ".png"));
 
 						upDown[i] = 0;
 

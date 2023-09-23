@@ -16,8 +16,8 @@ public class MainMenu extends LevelBase implements ActionListener {
     public MainMenu() {
         super("Pooyan - Welcome");
 
-        lblLogo = new JLabel(new ImageIcon(iconPath + "logo.png"));
-        lblMenu = new JLabel(new ImageIcon(iconPath + "menu_label.png"));
+        lblLogo = new JLabel(getImageIcon(iconPath + "logo.png"));
+        lblMenu = new JLabel(getImageIcon(iconPath + "menu_label.png"));
         btnStart = new JButton("Start", null);
         btnExit = new JButton("Exit", null);
 
